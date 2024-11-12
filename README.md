@@ -81,18 +81,22 @@ The optimization logic is implemented in `optimize_routes.py` and follows these 
 
 1. **Load Data**: Reads the CSV file containing delivery information with fields like pickup and drop-off locations, times, and coordinates.
 
-2. **Calculate Distances and Travel Time**:
+2. **Set Collection Points and Delivery Windows**:
+   - Each route begins with a designated **collection point**.
+   - The algorithm respects **collection time windows** and assigns **defined time windows for deliveries** based on estimated travel time.
+
+3. **Calculate Distances and Travel Time**:
    - Uses the **Haversine formula** to calculate the distance between points.
-   - Adjusts travel speed dynamically based on distance.
+   - Adjusts travel speed dynamically based on distance, with slower speeds for short distances and an average speed for longer distances.
 
-3. **Optimize Route by Proximity**:
-   - Selects the nearest unvisited location to form a route.
-   - Organizes pickups and drop-offs to maximize efficiency within the limit of stops per route.
+4. **Optimize Route by Proximity and Constraints**:
+   - The algorithm selects the nearest unvisited location to form a route segment.
+   - It organizes pickups and drop-offs to maximize efficiency, keeping each route within the limit of **8 hours** or **120 miles**.
 
-4. **Generate Google Maps Link**:
+5. **Generate Google Maps Link**:
    - Creates a link to visualize each optimized route in Google Maps with all the stops included.
 
-5. **Export Data**: Each optimized route segment is saved as a CSV file containing route details like total distance, duration, and estimated drop-off times.
+6. **Export Data**: Each optimized route segment is saved as a CSV file containing route details like total distance, duration, and estimated drop-off times.
 
 ## How to Extend the Project
 
@@ -128,4 +132,3 @@ Consider adding error handling in:
 - [Google Maps URL Parameters](https://developers.google.com/maps/documentation/urls)
 
 ---
-

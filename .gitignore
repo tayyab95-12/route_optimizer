@@ -47,10 +47,8 @@ venv/
 *.log
 
 # CSV and other large data files
-*.csv
 *.json
 
 # Any data or extra files generated during project execution
-data/
 output/
 results/
