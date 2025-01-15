@@ -3,4 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     # Define endpoints
+    path('', include('optimizer.urls')),
 ]

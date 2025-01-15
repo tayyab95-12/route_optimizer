@@ -54,7 +54,9 @@ ROOT_URLCONF = 'route_optimizer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            "optimizer/templates"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
